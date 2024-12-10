@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SENAIFLIX - Filmes e Séries</title>
     <link rel="stylesheet" href="../assets/styles/global.css">
+    <script src="script.js"></script>
 
 </head>
 <body>
@@ -27,11 +28,13 @@
         </nav>
         
     </header>
-
+    
     <header id="cabecalho-mobile">
 
-        <button>
-            <img src="../assets/imgs/xmark-solid.svg" alt="">
+        <button class="botao-de-fechar" onclick="fecharCabecalhoMobile()">
+
+            <img src="../assets/imgs/xmark-solid.svg">
+
         </button>
 
         <nav>
@@ -43,17 +46,21 @@
         </nav>
 
     </header>
-    
+
+    <button class="menu-de-hamburguer" onclick="abrirCabecalhoMobile()">
+
+        <img src="../assets/imgs/bars-solid.svg" alt="Menu de hamburguer">
+
+    </button>
+
     <main>
 
         <section class="banner">
 
             <div class="textos">
 
-                <h1>ASSISTA AGORA!</h1>        
-                <!-- <p class="p-desktop">Após a morte de seu pai, Thor precisa lutar com sua meia irmã para salvar Asgard!Após a morte de seu pai, Thor precisa lutar com sua meia irmã para salvar Asgard!Após a morte de seu pai, Thor precisa lutar com sua meia irmã para salvar Asgard!Após a morte de seu pai, Thor precisa lutar com sua meia irmã para salvar Asgard!Após a morte de seu pai, Thor precisa lutar com sua meia irmã para salvar Asgard!Após a morte de seu pai, Thor precisa lutar com sua meia irmã para salvar Asgard!Após a morte de seu pai, Thor precisa lutar com sua meia irmã para salvar Asgard!</p>
-                <p class="p-responsivo">Após a morte de seu pai, Thor precisa lutar com sua meia irmã para salvar Asgard!Após a morte de seu pai, Thor precisa lutar com sua meia irmã para salvar Asgard!</p> -->
-                <p>Após a morte de seu pai, Thor precisa lutar com sua meia irmã para salvar Asgard!Após a morte de seu pai, Thor precisa lutar com sua meia irmã para salvar Asgard!Após a morte de seu pai, Thor precisa lutar com sua meia irmã para salvar Asgard!Após a morte de seu pai, Thor precisa lutar com sua meia irmã para salvar Asgard!Após a morte de seu pai, Thor precisa lutar com sua meia irmã para salvar Asgard!Após a morte de seu pai, Thor precisa lutar com sua meia irmã para salvar Asgard!Após a morte de seu pai, Thor precisa lutar com sua meia irmã para salvar Asgard!</p>
+                <h1>Thor Ragnarok!</h1>        
+                <p>Thor: Ragnarok (2017) é o terceiro filme da franquia solo de Thor no Universo Cinematográfico da Marvel, dirigido por Taika Waititi. A história começa quando Thor descobre que sua irmã perdida, Hela, a poderosa deusa da morte, escapou de sua prisão e está determinada a conquistar Asgard, desencadeando o apocalipse conhecido como Ragnarok.</p>
 
             </div>
 
@@ -84,7 +91,7 @@
 
             <h2>Filmes</h2>
 
-            <div class="card-container">
+            <div id="filmes-card-container" class="card-container">
 
                 <a href="../detalhes-do-filme/" class="card"></a>
                 <a href="../detalhes-do-filme/" class="card"></a>
@@ -107,8 +114,8 @@
                 <a href="../detalhes-do-filme/" class="card"></a>
                 <a href="../detalhes-do-filme/" class="card"></a>
                 <a href="../detalhes-do-filme/" class="card"></a>
-                <a href="/detalhes-do-filme/" class="card"></a>
-                <a href="/detalhes-do-filme/" class="card"></a>
+                <a href="../detalhes-do-filme/" class="card"></a>
+                <a href="../detalhes-do-filme/" class="card"></a>
 
             </div>
             
@@ -117,6 +124,12 @@
     </main>
 
     <footer>
+
+        <script>
+
+            carregarFilmes();
+
+        </script>
 
         <p>Nos siga nas redes sociais.</p>
 

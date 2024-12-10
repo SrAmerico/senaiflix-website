@@ -21,7 +21,7 @@ body {
 }
 
 .cabecalho {
-    position: absolute; /* Posiciona o cabecalho de forma absoluta, sobrepondo outros elementos */
+    position: absolute; /* Posiciona o .cabecalho de forma absoluta, sobrepondo outros elementos */
     width: 100%; /* Define a largura do .cabecalho como 100% da tela */
     background: rgb(0,0,0); /* Define a cor de fundo como preta */
     background: -moz-linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(255,255,255,0) 100%); /* Gradiente linear para navegadores antigos (Mozilla) */
@@ -47,11 +47,15 @@ body {
     margin-left: 10px; /* Adiciona uma margem de 10px à esquerda de cada link */
 }
 
+#cabecalho-mobile {
+    display: none;
+}
+
 .banner {
     background-image: url("../imgs/bg.jpg"); /* Define a imagem de fundo do banner */
     background-size: cover; /* Faz com que a imagem cubra toda a área disponível */
     background-position: center; /* Centraliza a imagem de fundo */
-    width: 100vw; /* Define a largura do banner como 100% da largura da janela de visualização */
+    width: 100%; /* Define a largura do banner como 100% da largura da janela de visualização */
     height: 100vh; /* Define a altura do banner como 100% da altura da janela de visualização */
     display: flex; /* Usa flexbox para o layout */
     align-items: flex-end; /* Alinha os itens dentro do banner na parte inferior */
@@ -64,16 +68,13 @@ body {
 .banner h1 {
     color: white; /* Define a cor do texto do <h1> dentro do banner como branca */
     font-size: 3em; /* Define o tamanho da fonte como 3 vezes o tamanho padrão */
+    margin-bottom: 10px;
 }
 
 .banner p {
     color: white; /* Define a cor do texto do <p> dentro do banner como branca */
     width: 60vw; /* Define a largura do parágrafo como 60% da largura da janela de visualização */
 }
-
-/* .p-responsivo {
-    display: none;
-} */
 
 .banner .textos {
 
@@ -102,7 +103,7 @@ body {
 
 .filmes-series {
 
-    width: 100vw;
+    width: 100%;
     height: auto;
     background-color: black;
     min-height: 200px; /* Altura mínima */
@@ -334,77 +335,135 @@ main {
     text-align: center;
 }
 
+/* Media Query */
 @media (max-width: 768px) {
-    
+    /* Quando a tela tiver 768px ou menor, estas regras CSS serão ativadas */
     .banner {
         padding-left: 15px;
         padding-right: 15px;
         padding-bottom: 35px;
     }
-
-    /* .banner .p-desktop {
-        display: none;
-    } */
-
-    .banner h1{
-        margin-left: 20px;
-    }
-
     .banner p {
-        width: 100%;
-        color: white;
         font-size: 20px;
+        width: 100%;
         text-align: justify;
-        padding: 10px 20px 10px 20px;
     }
-
+    .gradiente-de-baixo {
+        height: 90vh;
+    }
     .filmes-series {
         padding-left: 15px;
         padding-right: 15px;
     }
 
-    .filmes-series .inputs {
+    /* Forma 1 */
+    /* .filmes-series .inputs {
         flex-direction: column;
-        align-items: center;
+    } */
+
+    /* Forma 2 */
+    .filmes-series .inputs {
+        flex-wrap: wrap;
     }
 
     .filmes-series .inputs label {
-        margin-bottom: 20px;
+
+        margin-bottom: 10px;
+
     }
 
     .filmes-series .card-container {
+
         flex-wrap: wrap;
-        justify-content: center;
+        justify-content: space-between;
+
     }
 
     .filmes-series .card-container .card {
-        width: 50%;
-        height: 500px;
+
+        flex-basis: calc(50% - 5px); /* Define o tamanho mínimo do card, width também funcionaria */
+        /* Utilizei calc(50% - 5px) para descontar o margin-right: 10px que o .card tem, e como temos 2 cards por linha, dando removendo 5px de cada faz com que o elemento caiba perfeitamente */
+
+        height: 230px;
         margin-bottom: 10px;
+
     }
 
+    .filmes-series .card-container .card:nth-child(even) {
+
+        margin-right: 0px !important;
+
+    }
+
+    /* CABECALHO - MOBILE */
     .cabecalho {
         display: none;
     }
 
     #cabecalho-mobile {
-        width: 100%;
-        height: 100vh;
+
         position: fixed;
-        z-index: 2;
+
+        height: 100vh;
+        width: 100%;
         background-color: black;
+
+        z-index: 2;
+
     }
 
     #cabecalho-mobile nav {
+
         display: flex;
         flex-direction: column;
         padding-top: 20vh;
         padding-left: 15px;
+
     }
 
     #cabecalho-mobile nav a {
+
+        text-decoration: none;
         color: white;
         font-size: 4em;
         margin-bottom: 40px;
+
     }
+
+    .botao-de-fechar {
+
+        width: 50px;
+        height: 50px;
+
+        background-color: transparent;
+        border: none;
+
+        position: absolute; /* Deixa o elemento flutuando na tela */
+        top: 10px;
+        right: 10px;
+
+    }
+
+    .botao-de-fechar img {
+
+        width: 50px;
+        height: 50px;
+
+    }
+
+    .menu-de-hamburguer {
+
+        width: 40px;
+        height: 40px;
+        background-color: transparent;
+        border: none;
+
+        position: absolute; /* Deixa o elemento flutuando na tela */
+        top: 10px;
+        right: 10px;
+        
+        z-index: 1;
+
+    }
+
 }
